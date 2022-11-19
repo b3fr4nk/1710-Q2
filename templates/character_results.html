@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Characters</title>
+</head>
+
+<body>
+    <ul>
+        {% block content %}
+        {% if {'a':character, 'b':dict} is mapping %}
+        <li>
+            <p>
+                {{ character["name"] }} has {{ character["hair_color"] }} hair {{ character["eye_color"] }} eyes, weighs
+                {{ character["mass"] }}kg and is {{character["height"]}}cm tall
+            </p>
+        </li>
+        {% endif %}
+
+        {% endblock %}
+
+        <form action="planet_results.html">
+            <button type="submit">Search home planet</button>
+        </form>
+
+    </ul>
+</body>
+
+</html>

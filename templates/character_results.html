@@ -17,14 +17,14 @@
                 {{ character["name"] }} has {{ character["hair_color"] }} hair {{ character["eye_color"] }} eyes, weighs
                 {{ character["mass"] }}kg and is {{character["height"]}}cm tall
             </p>
+            <br>
+            <p>
+                {{ character["name"] }} is from {{homeworld["name"]}}
+            </p>
         </li>
         {% endif %}
 
         {% endblock %}
-
-        <form action="planet_results.html">
-            <button type="submit">Search home planet</button>
-        </form>
 
     </ul>
 </body>

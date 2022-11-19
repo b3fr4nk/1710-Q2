@@ -6,14 +6,13 @@ import requests
 # setup flask
 app = Flask(__name__)
 
-swapi_url = "https://swapi.py4e.com/api/people"
+swapi_url = "https://swapi.py4e.com/api/"
 
 # routes
 @app.route('/characters')
 def characters():
 
     return render_template("characters.html")
-
 
 @app.route('/character_results', methods=["POST"])
 def characters_results():
@@ -23,16 +22,17 @@ def characters_results():
 
     character_index = int(request.form.get("character_index"))
 
-    results = requests.get(swapi_url).json()["results"]
+    results = requests.get(swapi_url + "people").json()["results"]
 
     if len(results) > character_index:
         requested_character = results[character_index]
         context["character"] = requested_character
 
-    
+    homeworld_url = requested_character["homeworld"]
+    homeworld = requests.get(homeworld_url).json()
+    context["homeworld"] = homeworld
 
     return render_template("character_results.html", **context)
-
 
 # def display_characters():
 #     """ gets all star wars characters and returns an easily readable list """

@@ -34,18 +34,6 @@ def characters_results():
 
     return render_template("character_results.html", **context)
 
-# def display_characters():
-#     """ gets all star wars characters and returns an easily readable list """
-
-#     results = requests.get(swapi_url).json()
-
-#     characters = {}
-
-#     for people in results.keys():
-#         characters[people] = results[people]
-
-#     return characters
-
 # run flask
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
